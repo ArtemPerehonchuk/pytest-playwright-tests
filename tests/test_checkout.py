@@ -1,0 +1,129 @@
+import pytest
+
+from data.test_data import TestData
+from pages.home_page import HomePage
+from pages.view_cart_page import ViewCartPage
+from pages.login_page import LoginPage
+from pages.signup_page import SignupPage
+from pages.account_created_page import AccountCreatedPage
+from pages.checkout_page import CheckoutPage
+from pages.payment_page import PaymentPage
+from pages.account_deleted_page import AccountDeletedPage
+
+home_page_url = 'https://automationexercise.com/'
+cart_page_url = 'https://automationexercise.com/view_cart'
+
+user_name = TestData.name
+user_email = TestData.email
+user_password = TestData.password
+user_first_name = TestData.first_name
+user_last_name = TestData.last_name
+user_company = TestData.company
+user_address = TestData.address
+user_address2 = TestData.address2
+user_state = TestData.state
+user_city = TestData.city
+user_zipcode = TestData.zipcode
+user_phone_number = TestData.mobile_number
+checkout_description = TestData.message
+card_name = TestData.card_name
+card_number = TestData.card_number
+cvc_code = TestData.cvc_code
+expiry_month = str(TestData.expiry_month)
+expiry_year = str(TestData.expiry_year)
+
+
+class TestCheckout:
+
+    @pytest.fixture
+    def test_setup(self, page):
+        self.page = page
+        #self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
+        self.home_page = HomePage(self.page)
+        self.view_cart_page = ViewCartPage(self.page)
+        self.login_page = LoginPage(self.page)
+        self.signup_page = SignupPage(self.page)
+        self.account_created_page = AccountCreatedPage(self.page)
+        self.checkout_page = CheckoutPage(self.page)
+        self.payment_page = PaymentPage(self.page)
+        self.account_deleted_page = AccountDeletedPage(self.page)
+
+        self.page.goto(home_page_url, wait_until='networkidle')
+
+    def test_register_while_checkout(self, test_setup):
+        """Test user registration while checkout
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        """
+        self.home_page.verify_url(home_page_url)
+        self.home_page.hover_on_product_and_click_add_to_cart_btn('blue top')
+        self.home_page.click_on_view_cart_btn()
+        self.view_cart_page.verify_url(cart_page_url)
+        self.view_cart_page.click_on_proceed_to_checkout_btn()
+        self.view_cart_page.click_on_register_login_link()
+        self.login_page.fill_signup_inputs(user_name, user_email)
+        self.login_page.click_on_signup_btn()
+        self.signup_page.check_title_radio_btn('Mr')
+        self.signup_page.fill_signup_inputs(user_password)
+        self.signup_page.select_day_from_days_drop_down()
+        self.signup_page.select_month_from_months_drop_down()
+        self.signup_page.select_year_from_years_drop_down()
+        self.signup_page.check_newsletter_checkbox()
+        self.signup_page.check_special_offers_checkbox()
+        self.signup_page.fill_additional_signup_inputs(user_first_name, user_last_name, user_company, user_address,
+                                                       user_address2, user_state, user_city, user_zipcode,
+                                                       user_phone_number)
+        self.signup_page.select_country_from_countries_drop_down()
+        self.signup_page.click_on_create_account_btn()
+        self.account_created_page.check_account_created_title_is_displayed()
+        self.account_created_page.click_on_continue_btn()
+        self.home_page.check_user_is_logged_in(user_name)
+        self.home_page.click_on_nav_menu_item('cart')
+        self.view_cart_page.click_on_proceed_to_checkout_btn()
+        self.checkout_page.check_checkout_titles_is_displayed()
+        self.checkout_page.fill_description_input(checkout_description)
+        self.checkout_page.click_on_place_order_btn()
+        self.payment_page.fill_payment_details(card_name, card_number, cvc_code, expiry_month, expiry_year)
+        self.payment_page.click_on_pay_and_confirm_order_btn()
+        self.payment_page.check_success_message_is_displayed()
+        self.home_page.click_on_nav_menu_item('delete account')
+        self.account_deleted_page.check_account_deleted_title_is_displayed()
+
+    def test_register_before_checkout(self, test_setup):
+        """Test user registration before checkout
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        """
+        self.home_page.verify_url(home_page_url)
+        self.home_page.click_on_nav_menu_item('login')
+        self.login_page.fill_signup_inputs(user_name, user_email)
+        self.login_page.click_on_signup_btn()
+        self.signup_page.check_title_radio_btn('Mr')
+        self.signup_page.fill_signup_inputs(user_password)
+        self.signup_page.select_day_from_days_drop_down()
+        self.signup_page.select_month_from_months_drop_down()
+        self.signup_page.select_year_from_years_drop_down()
+        self.signup_page.check_newsletter_checkbox()
+        self.signup_page.check_special_offers_checkbox()
+        self.signup_page.fill_additional_signup_inputs(user_first_name, user_last_name, user_company, user_address,
+                                                       user_address2, user_state, user_city, user_zipcode,
+                                                       user_phone_number)
+        self.signup_page.select_country_from_countries_drop_down()
+        self.signup_page.click_on_create_account_btn()
+        self.account_created_page.check_account_created_title_is_displayed()
+        self.account_created_page.click_on_continue_btn()
+        self.home_page.check_user_is_logged_in(user_name)
+        self.home_page.hover_on_product_and_click_add_to_cart_btn('blue top')
+        self.home_page.click_on_view_cart_btn()
+        self.view_cart_page.verify_url(cart_page_url)
+        self.view_cart_page.click_on_proceed_to_checkout_btn()
+        self.checkout_page.check_checkout_titles_is_displayed()
+        self.checkout_page.fill_description_input(checkout_description)
+        self.checkout_page.click_on_place_order_btn()
+        self.payment_page.fill_payment_details(card_name, card_number, cvc_code, expiry_month, expiry_year)
+        self.payment_page.click_on_pay_and_confirm_order_btn()
+        self.payment_page.check_success_message_is_displayed()
+        self.home_page.click_on_nav_menu_item('delete account')
+        self.account_deleted_page.check_account_deleted_title_is_displayed()
+
+
