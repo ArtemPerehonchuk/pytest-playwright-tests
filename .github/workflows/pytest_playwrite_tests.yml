@@ -30,7 +30,7 @@ jobs:
           playwright install chromium
 
       - name: Run tests
-        run: pytest --browser_name=chromium --headed --alluredir=reports
+        run: pytest --browser_name=chromium --alluredir=reports
 
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@master
