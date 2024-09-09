@@ -66,5 +66,5 @@ GitHub Actions is configured to run tests on every push and pull request to the 
 
 ### Allure Report:
 
-[View Allure report]:https://artemperehonchuk.github.io/pytest-playwright-tests/17/index.html
+[View Allure report]:https://artemperehonchuk.github.io/pytest-playwright-tests/
    
