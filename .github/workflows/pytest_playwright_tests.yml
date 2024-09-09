@@ -1,4 +1,4 @@
-name: pytest-playwright-tests
+name: pytest-playwrite-tests
 
 on:
   workflow_dispatch:
@@ -33,20 +33,26 @@ jobs:
         run: pytest --alluredir=./reports --clean-alluredir
 
       - name: Generate Allure Report
-        run: |
-          allure generate ./reports -o ./report --clean
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: reports
+          allure_history: report/history
+          keep_reports: 20
 
-      - name: Upload Allure Report as Artifact
+      - name: Save Allure Report as Artifact
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: report
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy report to Github Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./report
+          publish_dir: ./report/history
           publish_branch: gh-pages
           clean: true
 
