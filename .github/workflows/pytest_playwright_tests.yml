@@ -37,7 +37,7 @@ jobs:
         if: always()
         with:
           allure_results: reports
-          allure_history: report
+          allure_history: report/history
           keep_reports: 1
 
       - name: Save Allure Report as Artifact
@@ -50,22 +50,11 @@ jobs:
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: report
-
-      - name: Update README with latest Allure report link
-        run: |
-          sed -i "s|https://artemperehonchuk.github.io/pytest-playwright-tests/[0-9]*/index.html|https://artemperehonchuk.github.io/pytest-playwright-tests/${{ github.run_number }}/index.html|g" README.md
-
-      - name: Commit updated README
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git add README.md
-          git commit -m "Update README with the latest Allure report link"
-          git push
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./report
+          publish_branch: gh-pages
+          clean: true
 
       - name: Report Status
         if: always()
