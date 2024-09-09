@@ -64,7 +64,7 @@ To open the report use next command:
 
 GitHub Actions is configured to run tests on every push and pull request to the main branch or workflow can be run manually on the Actions tab. The test results are uploaded as artifacts, and the Allure report is deployed to GitHub Pages.
 
-### Allure Report:
-
-[View Allure report]:https://artemperehonchuk.github.io/pytest-playwright-tests/
+## Allure Report:
+Link to open the allure report on GitHub Pages:
+https://artemperehonchuk.github.io/pytest-playwright-tests/
    
