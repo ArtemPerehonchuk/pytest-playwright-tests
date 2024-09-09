@@ -1,0 +1,71 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Sep 09 13:45:12 GMT 2024","Mon Sep 09 13:45:12 GMT 2024","850","tests","test_products","TestProducts","","","test_product_search","
+        Search for product
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:44:44 GMT 2024","Mon Sep 09 13:44:44 GMT 2024","641","tests","test_cart","TestCart","","","test_product_quantity","
+        Add product to cart
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:47:38 GMT 2024","Mon Sep 09 13:47:38 GMT 2024","161","tests","test_test_cases","TestTestCases","","","test_test_cases","Proceed to test cases page
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Mon Sep 09 13:44:56 GMT 2024","Mon Sep 09 13:45:02 GMT 2024","5659","tests","test_checkout","TestCheckout","","","test_register_before_checkout","Test user registration before checkout
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Mon Sep 09 13:45:22 GMT 2024","Mon Sep 09 13:45:22 GMT 2024","721","tests","test_register_login","TestRegisterAndLogin","","","test_valid_login","
+        Login user with correct email and password
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:45:08 GMT 2024","Mon Sep 09 13:45:09 GMT 2024","548","tests","test_products","TestProducts","","","test_product_detail","
+        Verify All Products and product detail page
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:46:30 GMT 2024","Mon Sep 09 13:46:30 GMT 2024","386","tests","test_register_login","TestRegisterAndLogin","","","test_register_user_with_existing_email","Test user registration with existing email
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Mon Sep 09 13:46:33 GMT 2024","Mon Sep 09 13:46:34 GMT 2024","163","tests","test_subscription","TestSubscription","","","test_subscription_in_home_page","
+        Test subscription in home page
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"broken","Mon Sep 09 13:46:34 GMT 2024","Mon Sep 09 13:46:34 GMT 2024","0","tests","test_subscription","TestSubscription","","","test_subscription_in_cart_page","
+        Test subscription in home page
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"broken","Mon Sep 09 13:45:22 GMT 2024","Mon Sep 09 13:45:22 GMT 2024","0","tests","test_register_login","TestRegisterAndLogin","","","test_invalid_login","
+        Login user with incorrect email and password
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:46:26 GMT 2024","Mon Sep 09 13:46:27 GMT 2024","830","tests","test_register_login","TestRegisterAndLogin","","","test_logout","
+        Logout user
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:44:39 GMT 2024","Mon Sep 09 13:44:41 GMT 2024","1517","tests","test_cart","TestCart","","","test_add_product","
+        Add product to cart
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:44:47 GMT 2024","Mon Sep 09 13:44:53 GMT 2024","5991","tests","test_checkout","TestCheckout","","","test_register_while_checkout","Test user registration while checkout
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
+"passed","Mon Sep 09 13:45:04 GMT 2024","Mon Sep 09 13:45:05 GMT 2024","648","tests","test_contuct_us","TestContactUs","","","test_contact_us_form","
+        Test contact us form
+        :param test_setup: setting up the browser and page objects
+        :return:
+        "
+"passed","Mon Sep 09 13:45:15 GMT 2024","Mon Sep 09 13:45:19 GMT 2024","3597","tests","test_register_login","TestRegisterAndLogin","","","test_register_user","Test user registration
+        :param test_setup: setting up the browser and page objects
+        :return: None
+        "
