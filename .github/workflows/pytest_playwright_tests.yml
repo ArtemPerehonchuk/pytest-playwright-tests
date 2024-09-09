@@ -37,8 +37,8 @@ jobs:
         if: always()
         with:
           allure_results: reports
-          allure_history: report
-          keep_reports: 1
+#          allure_history: report
+#          keep_reports: 1
 
       - name: Save Allure Report as Artifact
         if: always()
