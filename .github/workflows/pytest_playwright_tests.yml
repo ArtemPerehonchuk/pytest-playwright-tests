@@ -33,22 +33,19 @@ jobs:
         run: pytest --alluredir=./reports --clean-alluredir
 
       - name: Generate Allure Report
-        run: allure generate ./reports -o ./allure-report --clean
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: reports
+          allure_history: report
+          keep_reports: 1
 
       - name: Save Allure Report as Artifact
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
-          path: ./allure-report
-
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./allure-report
+          path: report
 
       - name: Deploy report to Github Pages
         if: always()
