@@ -36,8 +36,8 @@ expiry_year = str(TestData.expiry_year)
 class TestCheckout:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
+    def test_setup(self, new_page):
+        self.page = new_page
         #self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
         self.home_page = HomePage(self.page)
         self.view_cart_page = ViewCartPage(self.page)

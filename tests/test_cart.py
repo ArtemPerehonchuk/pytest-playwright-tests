@@ -1,8 +1,7 @@
-import  pytest
+import pytest
 import random
 
 from pages.home_page import HomePage
-from pages.view_cart_page import ViewCartPage
 from pages.products_page import ProductsPage
 from pages.product_details_page import ProductDetailsPage
 from pages.view_cart_page import ViewCartPage
@@ -17,13 +16,13 @@ random_quantity = random.randint(2, 10)
 class TestCart:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
+    def test_setup(self, new_page):
+        self.page = new_page
         self.home_page = HomePage(self.page)
         self.view_cart = ViewCartPage(self.page)
         self.products_page = ProductsPage(self.page)
         self.product_details_page = ProductDetailsPage(self.page)
-        self.view_cart_page =ViewCartPage(self.page)
+        self.view_cart_page = ViewCartPage(self.page)
         self.page.goto(home_page_url, wait_until='networkidle')
 
     def test_add_product(self, test_setup):

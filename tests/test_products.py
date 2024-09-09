@@ -12,8 +12,8 @@ product_details_url = 'https://automationexercise.com/product_details/1'
 class TestProducts:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
+    def test_setup(self, new_page):
+        self.page = new_page
         self.home_page = HomePage(self.page)
         self.products_page = ProductsPage(self.page)
         self.product_details_page = ProductDetailsPage(self.page)

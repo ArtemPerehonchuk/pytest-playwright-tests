@@ -12,8 +12,8 @@ user_email = TestData.email
 class TestSubscription:
 
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
+    def test_setup(self, new_page):
+        self.page = new_page
         self.home_page = HomePage(self.page)
         self.view_cart_page = ViewCartPage(self.page)
         self.page.goto(home_page_url, wait_until='networkidle')

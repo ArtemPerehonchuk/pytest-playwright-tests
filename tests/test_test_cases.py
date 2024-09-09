@@ -8,8 +8,8 @@ test_cases_url = 'https://automationexercise.com/test_cases'
 
 class TestTestCases:
     @pytest.fixture
-    def test_setup(self, page):
-        self.page = page
+    def test_setup(self, new_page):
+        self.page = new_page
         self.home_page = HomePage(self.page)
         self.page.goto(home_page_url, wait_until='networkidle')
 

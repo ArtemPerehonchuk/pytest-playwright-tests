@@ -21,7 +21,7 @@ class HomePage:
         self.__success_subscribe_message = self.page.get_by_text('You have been successfully subscribed!')
         self.__first_product_view_product_btn = self.page.locator('a[href="/product_details/1"]')
         self.__first_product = self.page.locator('xpath=/html/body/section[2]/div/div/div[2]/div/div[2]/div/div[1]')
-        self.__first_product_add_to_cart_btn = self.page.locator('.item .product-image-wrapper .single-products .productinfo > [data-product-id="1"]')
+        self.__first_product_add_to_cart_btn = self.page.locator(".productinfo > .btn").first
         self.__second_product = self.page.locator('xpath=/html/body/section[2]/div/div/div[2]/div/div[3]/div/div[1]')
         self.__second_product_add_to_cart_btn = self.page.locator('.productinfo > [data-product-id="2"]')
         self.__continue_shopping_btn = self.page.get_by_text('Continue Shopping')
