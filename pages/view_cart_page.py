@@ -23,14 +23,6 @@ class ViewCartPage(HomePage):
     def check_second_product_is_displayed(self) -> None:
         assert self.__second_product.is_visible()
 
-    def verify_products_prices_and_quantity(self) -> None:
-        assert self.__first_product_price.text_content() == 'Rs. 500'
-        assert self.__second_product_price.text_content() == 'Rs. 400'
-        assert self.__first_product_quantity.text_content() == '1'
-        assert self.__second_product_quantity.text_content() == '2'
-        assert self.__first_product_total_price.text_content() == 'Rs. 500'
-        assert self.__second_product_total_price.text_content() == 'Rs. 400'
-
     def check_product_quantity(self, quantity) -> None:
         assert self.__first_product_quantity.text_content() == str(quantity)
 

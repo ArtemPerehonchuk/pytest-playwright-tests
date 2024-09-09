@@ -61,9 +61,6 @@ class HomePage:
         assert self.__logged_in_item.is_visible()
         expect(self.__logged_in_item).to_have_text(f'Logged in as {username}')
 
-    def click_on_logout_item(self) -> None:
-        self.__logout_item.click()
-
     def scroll_to_footer(self) -> None:
         self.__footer_container.scroll_into_view_if_needed()
 
@@ -94,9 +91,6 @@ class HomePage:
             self.__second_product.hover()
             self.__second_product_add_to_cart_btn.wait_for(state='visible')
             self.__second_product_add_to_cart_btn.click()
-
-    def click_on_continue_btn(self) -> None:
-        self.__continue_shopping_btn.click()
 
     def click_on_view_cart_btn(self) -> None:
         self.__view_cart_btn.click()

@@ -23,7 +23,6 @@ class PaymentPage(HomePage):
 
     def click_on_pay_and_confirm_order_btn(self) -> None:
         self.__pay_and_confirm_order_btn.click()
-        # self.page.wait_for_timeout(1000)
 
     def check_success_message_is_displayed(self) -> None:
         self.__success_message.wait_for(state='visible', timeout=5000)

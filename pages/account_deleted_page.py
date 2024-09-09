@@ -13,5 +13,3 @@ class AccountDeletedPage(HomePage):
     def check_account_deleted_title_is_displayed(self) -> None:
         assert self.__account_deleted_title.is_visible()
 
-    def click_on_continue_btn(self) -> None:
-        self.__continue_btn.click()

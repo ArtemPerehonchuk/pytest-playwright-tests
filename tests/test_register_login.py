@@ -32,7 +32,6 @@ class TestRegisterAndLogin:
     @pytest.fixture
     def test_setup(self, new_page):
         self.page = new_page
-        #self.page.set_viewport_size(viewport_size={'width': 1920, 'height': 1080})
         self.home_page = HomePage(self.page)
         self.login_page = LoginPage(self.page)
         self.signup_page = SignupPage(self.page)
@@ -46,7 +45,6 @@ class TestRegisterAndLogin:
         :param test_setup: setting up the browser and page objects
         :return: None
         """
-
         self.home_page.verify_url(home_page_url)
         self.home_page.click_on_nav_menu_item('signup')
         self.login_page.check_new_user_signup_title_is_displayed()
@@ -75,7 +73,6 @@ class TestRegisterAndLogin:
         :param test_setup: setting up the browser and page objects
         :return:
         """
-
         self.home_page.verify_url(home_page_url)
         self.home_page.click_on_nav_menu_item('signup')
         self.login_page.check_login_to_your_account_title_is_displayed()
@@ -116,7 +113,6 @@ class TestRegisterAndLogin:
         :param test_setup: setting up the browser and page objects
         :return: None
         """
-
         self.home_page.verify_url(home_page_url)
         self.home_page.click_on_nav_menu_item('signup')
         self.login_page.check_new_user_signup_title_is_displayed()

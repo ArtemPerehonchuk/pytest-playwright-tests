@@ -6,8 +6,6 @@ class CheckoutPage(HomePage):
     def __init__(self, page: Page):
         super().__init__(page)
 
-        # self.__first_product = self.page.get_by_text('Blue Top')
-        # self.__second_product = self.page.get_by_text('Men Tshirt')
         self.__address_details_title = self.page.get_by_text('Address Details')
         self.__review_your_order_title = self.page.get_by_text('Review Your Order')
         self.__description_input = self.page.locator('[class="form-control"]')

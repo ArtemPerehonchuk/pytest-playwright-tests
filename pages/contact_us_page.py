@@ -2,10 +2,10 @@ import os
 from playwright.sync_api import Page
 from pages.home_page import HomePage
 
+
 class ContactUsPage(HomePage):
     def __init__(self, page: Page):
         super().__init__(page)
-        #self.page = page
 
         self.__get_in_touch_title = self.page.get_by_text('Get In Touch')
         self.__contact_us_name_input = self.page.locator('[data-qa="name"]')
@@ -27,17 +27,12 @@ class ContactUsPage(HomePage):
         self.__contact_us_message_input.fill(message)
 
     def upload_file(self) -> None:
-        # file_path = os.path.join(os.path.dirname(__file__), "..", "data", "file.txt")
-        # self.page.set_input_files('input[type="file"]', file_path)
 
         file_path = os.path.join(os.path.dirname(__file__), "..", "data", "file.txt")
 
-        # Використовуємо FileChooser
         with self.page.expect_file_chooser() as fc_info:
-            # Імітуємо натискання на кнопку для відкриття вікна вибору файлу
             self.__choose_file_btn.click()
 
-        # Отримуємо об'єкт FileChooser і завантажуємо файл
         file_chooser = fc_info.value
         file_chooser.set_files(file_path)
 
@@ -45,7 +40,6 @@ class ContactUsPage(HomePage):
         self._contact_us_submit_btn.click()
 
     def handle_alert_and_confirm_ok(self) -> None:
-        # Перехоплюємо подію діалогового вікна
         self.page.on("dialog", lambda dialog: dialog.accept())
 
     def check_contact_us_success_message_is_displayed(self) -> None:
