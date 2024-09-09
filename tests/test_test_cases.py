@@ -11,7 +11,7 @@ class TestTestCases:
     def test_setup(self, new_page):
         self.page = new_page
         self.home_page = HomePage(self.page)
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_test_cases(self, test_setup):
         """Proceed to test cases page

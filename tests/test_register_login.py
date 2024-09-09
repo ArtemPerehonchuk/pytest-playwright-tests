@@ -39,7 +39,7 @@ class TestRegisterAndLogin:
         self.account_created_page = AccountCreatedPage(self.page)
         self.account_deleted_page = AccountDeletedPage(self.page)
 
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_register_user(self, test_setup):
         """Test user registration

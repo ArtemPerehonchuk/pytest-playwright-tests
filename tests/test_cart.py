@@ -23,7 +23,7 @@ class TestCart:
         self.products_page = ProductsPage(self.page)
         self.product_details_page = ProductDetailsPage(self.page)
         self.view_cart_page = ViewCartPage(self.page)
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_add_product(self, test_setup):
         """

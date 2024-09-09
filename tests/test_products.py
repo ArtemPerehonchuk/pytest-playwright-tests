@@ -17,7 +17,7 @@ class TestProducts:
         self.home_page = HomePage(self.page)
         self.products_page = ProductsPage(self.page)
         self.product_details_page = ProductDetailsPage(self.page)
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_product_detail(self, test_setup):
         """

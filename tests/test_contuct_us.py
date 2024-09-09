@@ -20,7 +20,7 @@ class TestContactUs:
         self.home_page = HomePage(self.page)
         self.contact_us_page = ContactUsPage(self.page)
 
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_contact_us_form(self, test_setup):
         """

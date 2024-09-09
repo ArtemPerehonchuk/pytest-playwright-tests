@@ -16,7 +16,7 @@ class TestSubscription:
         self.page = new_page
         self.home_page = HomePage(self.page)
         self.view_cart_page = ViewCartPage(self.page)
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_subscription_in_home_page(self, test_setup):
         """

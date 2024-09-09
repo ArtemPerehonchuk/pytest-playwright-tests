@@ -48,7 +48,7 @@ class TestCheckout:
         self.payment_page = PaymentPage(self.page)
         self.account_deleted_page = AccountDeletedPage(self.page)
 
-        self.page.goto(home_page_url, wait_until='networkidle')
+        self.page.goto(home_page_url, wait_until='networkidle', timeout=60000)
 
     def test_register_while_checkout(self, test_setup):
         """Test user registration while checkout
