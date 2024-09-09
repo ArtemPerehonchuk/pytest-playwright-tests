@@ -1,1 +1,1 @@
-# pytest-playwrite-tests
+# pytest-playwright-tests
