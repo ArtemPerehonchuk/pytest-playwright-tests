@@ -37,7 +37,7 @@ jobs:
         if: always()
         with:
           allure_results: reports
-          allure_history: allure-history
+          allure_history: report
           keep_reports: 1
 
       - name: Save Allure Report as Artifact
@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
-          path: allure-history
+          path: report
 
       - name: Deploy report to Github Pages
         if: always()
@@ -53,7 +53,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+          PUBLISH_DIR: report
 
       - name: Report Status
         if: always()
