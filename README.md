@@ -19,7 +19,7 @@ It also provides for sending notifications with test results after the run is co
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/pytest-playwright-tests.git
+   git clone https://github.com/ArtemPerehonchuk/pytest-playwright-tests.git
    cd pytest-playwright-tests
    ```
 2. **Install dependencies:**
