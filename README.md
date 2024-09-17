@@ -36,21 +36,18 @@ It also provides for sending notifications with test results after the run is co
    ```bash
    pytest
    ```
-2. **Run all tests with generating allure report:**
+
+2. **Run one particular test file:**
    ```bash
-   pytest --alluredir=./reports --clean-alluredir
-   ```
-3. **Run one particular test file:**
-   ```bash
-   pytest tests/<test_file_name>
+   pytest <test_file_name>
    ```
    <test_file_name> - the name of the test file from the tests directory in the project.
 
-4. **Run one particular test:**
+3. **Run one particular test:**
    ```bash
    pytest -k <test_name>
    ```
-   <test_file_name> - the name of the test from the tes file.
+   <test_name> - the name of the test from the tes file.
 
 ## Generate allure report:
 

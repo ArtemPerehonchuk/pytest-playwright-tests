@@ -1,8 +1,5 @@
-import random
 from playwright.sync_api import Page
 from pages.home_page import HomePage
-
-random_quantity = random.randint(2, 10)
 
 
 class ProductDetailsPage(HomePage):

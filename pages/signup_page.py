@@ -1,7 +1,8 @@
 import random
-import time
+
 from playwright.sync_api import Page
 from pages.home_page import HomePage
+from data.test_data import TestData
 
 
 class SignupPage(HomePage):
@@ -42,8 +43,6 @@ class SignupPage(HomePage):
         self.__signup_password_input.fill(password)
 
     def select_day_from_days_drop_down(self) -> None:
-        self.__days_drop_down.scroll_into_view_if_needed()
-
         options = self.__days_drop_down.locator('option').all()
         values = [option.get_attribute('value') for option in options if option.get_attribute('value')]
         random_day = random.choice(values)
@@ -51,7 +50,6 @@ class SignupPage(HomePage):
         self.__days_drop_down.select_option(random_day)
 
     def select_month_from_months_drop_down(self) -> None:
-        self.__months_drop_down.scroll_into_view_if_needed()
         options = self.__months_drop_down.locator('option').all()
         values = [option.get_attribute('value') for option in options if option.get_attribute('value')]
         random_month = random.choice(values)
@@ -59,7 +57,6 @@ class SignupPage(HomePage):
         self.__months_drop_down.select_option(random_month)
 
     def select_year_from_years_drop_down(self) -> None:
-        self.__years_drop_down.scroll_into_view_if_needed()
         options = self.__years_drop_down.locator('option').all()
         values = [option.get_attribute('value') for option in options if option.get_attribute('value')]
         random_year = random.choice(values)
@@ -67,32 +64,23 @@ class SignupPage(HomePage):
         self.__years_drop_down.select_option(random_year)
 
     def check_newsletter_checkbox(self) -> None:
-        self.__newsletter_checkbox.scroll_into_view_if_needed()
         self.__newsletter_checkbox.check()
 
     def check_special_offers_checkbox(self) -> None:
-        self.__special_offers_checkbox.scroll_into_view_if_needed()
         self.__special_offers_checkbox.check()
 
-    def fill_additional_signup_inputs(self, first_name, last_name, company, address, address2, state, city, zipcode, mobile_number):
-        self.__signup_first_name_input.scroll_into_view_if_needed()
-        self.__signup_first_name_input.fill(first_name)
-        self.__signup_last_name_input.scroll_into_view_if_needed()
-        self.__signup_last_name_input.fill(last_name)
-        self.__signup_company_input.scroll_into_view_if_needed()
-        self.__signup_company_input.fill(company)
-        self.__signup_address_input.scroll_into_view_if_needed()
-        self.__signup_address_input.fill(address)
-        self.__signup_address2_input.scroll_into_view_if_needed()
-        self.__signup_address2_input.fill(address2)
-        self.__signup_state_input.scroll_into_view_if_needed()
-        self.__signup_state_input.fill(state)
-        self.__signup_city_input.scroll_into_view_if_needed()
-        self.__signup_city_input.fill(city)
-        self.__signup_zipcode_input.scroll_into_view_if_needed()
-        self.__signup_zipcode_input.fill(zipcode)
-        self.__signup_mobile_number_input.scroll_into_view_if_needed()
-        self.__signup_mobile_number_input.fill(mobile_number)
+    def fill_additional_signup_inputs(self):
+        input_values = TestData.generate_input_values()
+
+        self.__signup_first_name_input.fill(input_values["first_name"])
+        self.__signup_last_name_input.fill(input_values["last_name"])
+        self.__signup_company_input.fill(input_values["company"])
+        self.__signup_address_input.fill(input_values["address"])
+        self.__signup_address2_input.fill(input_values["address2"])
+        self.__signup_state_input.fill(input_values["state"])
+        self.__signup_city_input.fill(input_values["city"])
+        self.__signup_zipcode_input.fill(input_values["zipcode"])
+        self.__signup_mobile_number_input.fill(input_values["mobile_number"])
 
     def select_country_from_countries_drop_down(self) -> None:
 

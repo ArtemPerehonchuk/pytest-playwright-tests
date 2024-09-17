@@ -18,7 +18,10 @@ def new_page(playwright: Playwright, request):
         browser = playwright.webkit.launch(headless=headless)
     context = browser.new_context(viewport={"width": 1920, "height": 1080})
     page = context.new_page()
-    page.goto(f'https://automationexercise.com/')
+    base_url = 'https://automationexercise.com/'
+    page.goto(f'{base_url}', wait_until='networkidle', timeout=60000)
+    current_url = page.url
+    assert current_url == base_url, "Expected URL to be 'https://automationexercise.com/', but got '{current_url}'"
     yield page
     browser.close()
 
